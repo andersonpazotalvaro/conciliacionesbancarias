@@ -1,0 +1,61 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+}
+
+group = 'co.smart.procesador'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation project.ext.springstarterweb
+    implementation 'org.projectlombok:lombok:1.18.24'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//runtimeOnly 'mysql:mysql-connector-java'
+	implementation project(':dominio')
+	implementation project(':aplicacion')
+	implementation project(':comun:comun-infraestructura')
+
+
+	//implementation project.ext.springsecurity
+	//implementation project.ext.jwt
+
+
+	implementation project(':dominio')
+	implementation project(':aplicacion')
+	implementation project(':comun:comun-infraestructura')
+	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '3.0.1'
+	implementation group: 'javax.mail', name: 'mail', version: '1.5.0-b01'
+
+	runtimeOnly project.ext.db
+
+	implementation project.ext.springamqp
+	implementation project.ext.gson
+	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+	implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+
+
+
+	/*implementation project.ext.springstarterweb
+	implementation project.ext.lombok
+	implementation project.ext.springbootjpa
+	implementation project.ext.springsecurity
+	implementation project.ext.jwt
+	implementation project.ext.springamqp*/
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+bootJar{
+	enabled= false
+}

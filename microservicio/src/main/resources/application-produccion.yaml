@@ -1,0 +1,36 @@
+server:
+  ssl:
+    enable: true
+    key-store: classpath:SSL2022-2023.p12
+    key-store-password: S1stem@s
+    keyStoreType: PKCS12
+    keyAlias: SSL2022-2023
+  port: 8082
+
+
+
+socket:
+  setSoTimeout(100*1000):
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/conciliaciones?useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: T3cn0l0g1@
+    dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+
